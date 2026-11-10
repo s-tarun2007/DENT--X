@@ -1,0 +1,8 @@
+{
+  "name": "Remix  DENT X — 3D Dental Digital twin Reconstruction \u0026 Analysis",
+  "description": "AI-assisted 3D dental reconstruction and clinical analysis platform for orthodontic and prosthodontic imaging.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+}
+
+:root, [data-theme="teal"] {
+  --background: #050608;
+  --bg-secondary: #090D14;
+  --bg-surface: #10141C;
+  --foreground: #F5F8FF;
+  --text-muted: #929BAA;
+  --accent-color: #00E5CC;
+  --accent-hover: #34eed8;
+  --accent-rgb: 0, 229, 204;
+  --accent-glow: 0 0 25px rgba(0, 229, 204, 0.45);
+  --accent-gradient: linear-gradient(to right, #00E5CC, #4FA3FF, #C084FC);
+  --accent-teal: #00E5CC;
+  --accent-aqua: #49F5DF;
+  --accent-blue: #528BFF;
+  --accent-violet: #9B82FF;
+  --subtle-border: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="violet"] {
+  --accent-color: #C084FC;
+  --accent-hover: #D8B4FE;
+  --accent-rgb: 192, 132, 252;
+  --accent-glow: 0 0 25px rgba(192, 132, 252, 0.45);
+  --accent-gradient: linear-gradient(to right, #C084FC, #A855F7, #F43F5E);
+  --accent-teal: #C084FC;
+}
+
+[data-theme="blue"] {
+  --accent-color: #38BDF8;
+  --accent-hover: #7DD3FC;
+  --accent-rgb: 56, 189, 248;
+  --accent-glow: 0 0 25px rgba(56, 189, 248, 0.45);
+  --accent-gradient: linear-gradient(to right, #38BDF8, #60A5FA, #818CF8);
+  --accent-teal: #38BDF8;
+}
+
+[data-theme="black"] {
+  --accent-color: #F8FAFC;
+  --accent-hover: #FFFFFF;
+  --accent-rgb: 248, 250, 252;
+  --accent-glow: 0 0 25px rgba(255, 255, 255, 0.35);
+  --accent-gradient: linear-gradient(to right, #FFFFFF, #E2E8F0, #94A3B8);
+  --accent-teal: #F8FAFC;
+}
+
+/* Dynamic Accent Helper Utilities */
+.text-accent {
+  color: var(--accent-color);
+}
+.bg-accent {
+  background-color: var(--accent-color);
+}
+.border-accent {
+  border-color: var(--accent-color);
+}
+.shadow-accent {
+  box-shadow: var(--accent-glow);
+}
+.accent-gradient-text {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #050608;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.01em;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  selection-background-color: #00E5CC;
+  selection-color: #000000;
+}
+
+/* Dark Liquid Glass Component - Cinematic Frosted Glass */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.12), 0 20px 45px -10px rgba(0, 0, 0, 0.7);
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.2px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(255, 255, 255, 0.08) 30%,
+    rgba(0, 229, 204, 0.22) 50%,
+    rgba(155, 130, 255, 0.15) 75%,
+    rgba(255, 255, 255, 0.25) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Glass Pill for taglines and indicators */
+.glass-pill {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 8px 24px -4px rgba(0, 0, 0, 0.5);
+}
+
+/* Dark Glass Card for Bento Grid and Feature Modules */
+.glass-card-dark {
+  background: rgba(16, 20, 28, 0.55);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 24px 48px -12px rgba(0, 0, 0, 0.85);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-dark:hover {
+  background: rgba(18, 24, 36, 0.75);
+  border-color: rgba(0, 229, 204, 0.3);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 30px 60px -12px rgba(0, 229, 204, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Atmosphere Glows */
+.soft-glow-teal {
+  box-shadow: 0 0 50px -10px rgba(0, 229, 204, 0.35);
+}
+
+.soft-glow-violet {
+  box-shadow: 0 0 50px -10px rgba(155, 130, 255, 0.25);
+}
+
+.radial-chamber-glow {
+  background: radial-gradient(circle at 50% 50%, rgba(0, 229, 204, 0.08) 0%, rgba(82, 139, 255, 0.04) 40%, transparent 70%);
+}
+
+.text-gradient-teal-violet {
+  background: linear-gradient(135deg, #00E5CC 0%, #49F5DF 35%, #528BFF 70%, #9B82FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-white {
+  background: linear-gradient(180deg, #FFFFFF 0%, #D8DFEE 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+code, pre, .font-mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-feature-settings: 'tnum' on, 'zero' on;
+}
+
+/* Dark clinical scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050608;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1c2433;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2b374d;
+}
